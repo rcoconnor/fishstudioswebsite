@@ -1,36 +1,33 @@
-import * as React from 'react'
-import { Link } from 'gatsby'
-import { 
-    container,
-    heading, 
-    navLinks, 
-    navLinkItem,
-    navLinkText
-} from './layout.module.css'
+import React from "react"
+import styled from "styled-components"
+
+import GlobalStyle from "./globalStyle"
+import Header from "./header"
+import Footer from "./footer"
+
+const StyledLayout = styled.div`
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+    #main-content {
+        width: 100%;
+        max-width: 62.5rem;
+        margin: 0 auto;
+        padding: 0 2.5rem;
+    }
+`
 
 const Layout = (props) => {
-    const pageTitle = props.pageTitle
-    const children = props.children
     return (
-        <main className={container}>
-            <title>{pageTitle}</title>
-            <nav>
-                <ul className={navLinks}>
-                    <li className={navLinkItem}>
-                        <Link to="/" className={navLinkText}>
-                            Home
-                        </Link>
-                    </li>
-                    <li className={navLinkItem}>
-                        <Link to="/about" className={navLinkText}>
-                            About
-                        </Link>
-                    </li>
-                </ul>
-            </nav>
-            <h1 className={heading}>{pageTitle}</h1>
-            {children}
-        </main>
+        <StyledLayout>
+            <GlobalStyle />
+            <Header />
+            <main id="main-content">{props.children}</main> 
+            <Footer /> 
+        </StyledLayout>
     )
 }
 
