@@ -8,7 +8,7 @@ module.exports = {
             resolve: 'gatsby-source-filesystem',
             options: {
                 name: 'images', 
-                path: 'src/images',
+                path: 'src/content',
             },
         },
         'gatsby-transformer-sharp', 
@@ -26,5 +26,6 @@ module.exports = {
             }, 
         }, 
         'gatsby-plugin-styled-components',
+        'gatsby-transformer-remark',
     ],
 };
